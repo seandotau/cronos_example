@@ -25,7 +25,7 @@ network:
   # Take a look here for some Cronos endpoints https://moonflow.solutions/rpc-servers
   endpoint: "https://rpc.cronos.org/"
   # Optionally provide the HTTP endpoint of a full chain dictionary to speed up processing
-  dictionary: "https://api.subquery.network/sq/subquery/cosmos-cronos-dictionary"
+  #dictionary: "https://api.subquery.network/sq/subquery/cosmos-cronos-dictionary"
   chainTypes:
     ethermint.evm.v1:
       file: ./proto/ethermint/evm/v1/tx.proto
@@ -44,14 +44,14 @@ network:
         - Any
 dataSources:
   - kind: cosmos/EthermintEvm
-    startBlock: 946 # Note that Cro Crow Token started at 946
+    startBlock: 4750000 #1752764 
     processor:
       file: ./node_modules/@subql/ethermint-evm-processor/dist/bundle.js
       options:
-        abi: erc20
-        address: "0xE4ab77ED89528d90E6bcf0E1Ac99C58Da24e79d5" #Cro Crow Token
+        abi: erc721 #change the option here
+        address: "0x9676c33E31e43731B03E71D42385F7f677D7929d"  #"0xc843f18d5605654391e7eDBEa250f6838C3e8936" 
     assets:
-      erc20:
+      erc721:
         file: ./cro-crow.abi.json
     mapping:
       file: ./dist/index.js
